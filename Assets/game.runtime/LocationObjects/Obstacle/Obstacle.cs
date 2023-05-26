@@ -1,9 +1,4 @@
-﻿using UnityEngine;
-
-public class Obstacle : LocationObject
+﻿public class Obstacle : LocationObject
 {
-
-
-
 
 }

@@ -31,6 +31,9 @@ public class LevelConfig
 
     [Header("Игрок B")]
     [SerializeField] private PlayerConfig playerBConfig;
+    
+    [Header("Препятствие")]
+    [SerializeField] private ObstacleConfig obstacleConfig;
 
     public Level LevelPref => levelPref;
     public Vector2Int MapSize => mapSize;
@@ -40,6 +43,7 @@ public class LevelConfig
 
     public PlayerConfig PlayerAConfig => playerAConfig;
     public PlayerConfig PlayerBConfig => playerBConfig;
+    public ObstacleConfig ObstacleConfig => obstacleConfig;
 }
 
 
@@ -51,6 +55,14 @@ public class PlayerConfig
 
     public Player PlayerPref => playerPref;
     public Vector2Int Position => position;
+}
+
+[Serializable]
+public class ObstacleConfig
+{
+    [SerializeField] private Obstacle obstaclePref;
+
+    public Obstacle ObstaclePref => obstaclePref;
 }
 
 

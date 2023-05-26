@@ -23,6 +23,8 @@ MonoBehaviour:
     playerBConfig:
       playerPref: {fileID: 7101646593464380730, guid: 75ba9c8c5e94f734a83f6621c4f9d8f9, type: 3}
       position: {x: 3, y: 2}
+    obstacleConfig:
+      obstaclePref: {fileID: 5379846119589063695, guid: 7dcc285de3c0a534ab7b93fac4230a50, type: 3}
   uiConfig:
     loadingViewPref: {fileID: 7695859843271640921, guid: b1607c63da6b0eb43a2a8178e32e051a, type: 3}
     editModeViewPref: {fileID: 220793024552368127, guid: 684a63ada0b8b7748b534d46710d7f9f, type: 3}

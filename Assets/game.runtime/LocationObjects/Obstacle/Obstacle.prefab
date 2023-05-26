@@ -210,3 +210,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectModeView: {fileID: 3717455611518700226}
+  isObstacle: 1

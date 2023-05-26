@@ -14,6 +14,7 @@ public class GameEditState : State
         _level = level;
     }
 
+    #region State Abstract release
     public override void OnEnter()
     {
         Debug.Log("Режим редактирования");
@@ -22,8 +23,8 @@ public class GameEditState : State
         _level.OnCellMouseClick += OnCellClick;
 
         _view = Object.Instantiate(_gameConfig.UIConfig.EditModeViewPref);
-        _view.Construct(OnPlay, OnEditPlayerA, OnEditPlayerB, OnEditObstacles);
-        OnEditPlayerA();
+        _view.Construct(OnPlay, OnSwichEditPlayerA, OnSwichEditPlayerB, OnSwichEditObstacles);
+        OnSwichEditPlayerA();
     }
 
     public override void OnExit()
@@ -38,30 +39,37 @@ public class GameEditState : State
         
     }
 
+    #endregion
+
+
     private void OnPlay()
     {
         
     }
 
-    private void OnEditPlayerA()
+    private void OnSwichEditPlayerA()
     {
         _selectedPlayer?.UnSelect();
+        _editObstacles = false;
 
         _selectedPlayer = _level.PlayerA;
         _selectedPlayer.Select();
     }
 
-    private void OnEditPlayerB()
+    private void OnSwichEditPlayerB()
     {
         _selectedPlayer?.UnSelect();
+        _editObstacles = false;
 
         _selectedPlayer = _level.PlayerB;
         _selectedPlayer.Select();
     }
 
-    private void OnEditObstacles()
+    private bool _editObstacles;
+    private void OnSwichEditObstacles()
     {
-
+        _selectedPlayer?.UnSelect();
+        _editObstacles = true;
     }
 
 
@@ -73,11 +81,31 @@ public class GameEditState : State
     private void OnCellClick(Cell cell)
     {
         Debug.Log($"{cell.transform.position.x}, {cell.transform.position.z}");
+
+        if (_editObstacles)
+            EditObstacle(cell);
+        else
+            EditPlayer(cell);
+    }
+
+    private void EditObstacle(Cell cell)
+    {
+        if (!cell.IsEmpty && !cell.placedObject.IsObstacle) return;
+
+        if (cell.IsEmpty)
+            _level.CreateObstacle(cell);
+        else
+            _level.RemoveObstacle(cell);
+    }
+
+    private void EditPlayer(Cell cell)
+    {
         if (_selectedPlayer == null) return;
         if (cell.IsEmpty == false)
         {
             Debug.Log($"Занята {cell.position2d}, {cell.IsEmpty}");
-            return; }
+            return;
+        }
 
         _selectedPlayer.SetPosition(cell);
     }

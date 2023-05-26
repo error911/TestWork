@@ -5,8 +5,9 @@ public class Cell : MonoBehaviour
 {
     public Vector2Int position2d => new Vector2Int((int)transform.position.x, (int)transform.position.z);
 
-    public bool IsEmpty => _player == null;
-    private Player _player;
+    public bool IsEmpty => placedObject == null;
+//    private Player _player;
+    public LocationObject placedObject { get; private set; }
 
     private Action<Cell> _onMouseEnter;
     private Action<Cell> _onMouseClick;
@@ -27,14 +28,16 @@ public class Cell : MonoBehaviour
         _onMouseClick?.Invoke(this);
     }
 
-    public void SetPlayer(Player player)
+    public void PlaceToCell(LocationObject locationElement)
     {
-        _player = player;
+        placedObject = locationElement;
+        //_player = player;
     }
 
-    public void RemovePlayer()
+    public void RemoveFromCell()
     {
-        _player = null;
+        placedObject = null;
+        //_player = null;
     }
 
 }
