@@ -50,9 +50,11 @@ public class LevelConfig
 [Serializable]
 public class PlayerConfig
 {
+    [SerializeField] private string playerName;
     [SerializeField] private Player playerPref;
     [SerializeField] private Vector2Int position;
 
+    public string PlayerName => playerName;
     public Player PlayerPref => playerPref;
     public Vector2Int Position => position;
 }
@@ -71,7 +73,9 @@ public class UIConfig
 {
     [SerializeField] private LoadingView loadingViewPref;
     [SerializeField] private EditModeView editModeViewPref;
+    [SerializeField] private BattleModeView battleModeViewPref;
     
     public LoadingView LoadingViewPref => loadingViewPref;
     public EditModeView EditModeViewPref => editModeViewPref;
+    public BattleModeView BattleModeViewPref => battleModeViewPref;
 }

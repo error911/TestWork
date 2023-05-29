@@ -46,10 +46,12 @@ public class Level : MonoBehaviour
     private void CreatePlayers()
     {
         _data.playerA = Instantiate(_config.PlayerAConfig.PlayerPref, transform);
+        _data.playerA.Construct(_config.PlayerAConfig);
         var cellA = GetCell(_config.PlayerAConfig.Position);
         _data.playerA.SetPosition(cellA);
 
         _data.playerB = Instantiate(_config.PlayerBConfig.PlayerPref, transform);
+        _data.playerB.Construct(_config.PlayerBConfig);
         var cellB = GetCell(_config.PlayerBConfig.Position);
         _data.playerB.SetPosition(cellB);
     }

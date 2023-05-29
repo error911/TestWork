@@ -6,7 +6,7 @@ public class Cell : MonoBehaviour
     public Vector2Int position2d => new Vector2Int((int)transform.position.x, (int)transform.position.z);
 
     public bool IsEmpty => placedObject == null;
-//    private Player _player;
+
     public LocationObject placedObject { get; private set; }
 
     private Action<Cell> _onMouseEnter;
@@ -31,13 +31,11 @@ public class Cell : MonoBehaviour
     public void PlaceToCell(LocationObject locationElement)
     {
         placedObject = locationElement;
-        //_player = player;
     }
 
     public void RemoveFromCell()
     {
         placedObject = null;
-        //_player = null;
     }
 
 }

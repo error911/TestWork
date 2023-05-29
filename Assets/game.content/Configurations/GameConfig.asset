@@ -18,9 +18,11 @@ MonoBehaviour:
     cellPref: {fileID: 2590620661329323500, guid: 49715394d05919f4db13abf31635610d, type: 3}
     cellSize: 1
     playerAConfig:
+      playerName: "\u0418\u0433\u0440\u043E\u043A A"
       playerPref: {fileID: 7088421900485223179, guid: 8507dba4c6ed58342a1f4c5860b69378, type: 3}
       position: {x: 6, y: 7}
     playerBConfig:
+      playerName: "\u0418\u0433\u0440\u043E\u043A B"
       playerPref: {fileID: 7101646593464380730, guid: 75ba9c8c5e94f734a83f6621c4f9d8f9, type: 3}
       position: {x: 3, y: 2}
     obstacleConfig:
@@ -28,3 +30,4 @@ MonoBehaviour:
   uiConfig:
     loadingViewPref: {fileID: 7695859843271640921, guid: b1607c63da6b0eb43a2a8178e32e051a, type: 3}
     editModeViewPref: {fileID: 220793024552368127, guid: 684a63ada0b8b7748b534d46710d7f9f, type: 3}
+    battleModeViewPref: {fileID: 3125922060735535131, guid: aa7e006c405f4fe48be0affcc95c434e, type: 3}

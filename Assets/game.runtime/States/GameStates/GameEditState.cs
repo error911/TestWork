@@ -44,7 +44,8 @@ public class GameEditState : State
 
     private void OnPlay()
     {
-        
+        _selectedPlayer?.UnSelect();
+        StateMaschine.Swich(new GameBattleState(_gameConfig, _level));
     }
 
     private void OnSwichEditPlayerA()
